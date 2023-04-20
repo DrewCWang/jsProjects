@@ -1,0 +1,31 @@
+{
+	"manifest_version": 3,
+	"name": "Focus",
+	"version": "1.0",
+	"author": "Andrew Wang",
+	"description": "Removes content from youtube and replaces it with an inspirational quote to help you get back to being productive!",
+	"icons": {
+		"48": "images/Focus.png"
+	},
+	"action": {
+		"browser_style": true,
+		"default_icon": {
+			"16": "images/Focus.png"
+		},
+		"default_popup": "popup.html"
+
+	},
+	"content_scripts": [
+	{
+		"matches": ["https://www.youtube.com/*", "https://www.facebook.com/*"],
+		"js": ["jquery-3.1.1.min.js", "./main.js"], //file path to the main code
+		"css": ["index.css"]
+	}
+],
+	"web_accessible_resources": [
+		{
+			"resources": ["images/*.png", "images/*.jpeg"],
+			"matches": ["<all_urls>"]
+		}
+	]
+}
